@@ -6,7 +6,7 @@
 <title>Afonso Tattoo</title>
 <meta name="description" content="Tatuagens autorais em Fine Line e Blackwork, criadas à mão livre na pele. Conheça o trabalho do tatuador Afonso e peça seu orçamento pelo WhatsApp.">
 <link rel="icon" type="image/png" href="favicon.png">
-<link rel="preload" as="image" href="assets/banner-2.webp" imagesrcset="assets/banner-2-800.webp 800w, assets/banner-2.webp 1400w" imagesizes="(min-width: 900px) 56vw, 100vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/banner-2.webp" imagesrcset="assets/banner-2-600.webp 600w, assets/banner-2-800.webp 800w, assets/banner-2-1100.webp 1100w, assets/banner-2.webp 1400w" imagesizes="(min-width: 900px) 56vw, 100vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@400;500;600&display=swap">
@@ -320,7 +320,7 @@ footer { border-top: 1px solid var(--border); }
 </svg>
 
 <header class="hero">
-  <img src="assets/banner-2.webp" srcset="assets/banner-2-800.webp 800w, assets/banner-2.webp 1400w" sizes="(min-width: 900px) 56vw, 100vw" width="1400" height="2100" alt="Afonso, de camiseta preta, no estúdio com desenhos emoldurados ao fundo" fetchpriority="high" decoding="async">
+  <img src="assets/banner-2.webp" srcset="assets/banner-2-600.webp 600w, assets/banner-2-800.webp 800w, assets/banner-2-1100.webp 1100w, assets/banner-2.webp 1400w" sizes="(min-width: 900px) 56vw, 100vw" width="1400" height="2100" alt="Afonso, de camiseta preta, no estúdio com desenhos emoldurados ao fundo" fetchpriority="high">
   <div class="wrap hero-inner">
     <div class="hero-copy">
       <p class="hero-brand">Afonso Tattoo</p>
@@ -501,6 +501,7 @@ function placeholder(motivo, label) {
 /* fotos em assets/ têm uma versão menor (-480) para telas pequenas */
 function srcset(src, sizes) {
   if (!sizes || !/^assets\/(portfolio|estilo)-[\w-]+\.webp$/.test(src)) return "";
+  if (/^assets\/portfolio-/.test(src)) return ` srcset="${src.replace(/\.webp$/, "-480.webp")} 480w, ${src.replace(/\.webp$/, "-640.webp")} 640w, ${src} 960w" sizes="${sizes}"`;
   return ` srcset="${src.replace(/\.webp$/, "-480.webp")} 480w, ${src} 900w" sizes="${sizes}"`;
 }
 function media(src, alt, motivo, lazy = true, sizes = "") {
@@ -520,9 +521,10 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
   const copy = track.firstElementChild;
   const st = { paused: false, pos: 0, target: null, drag: null, moved: 0 };
   /* largura medida só quando muda e animação parada fora da tela: evita reflow a cada quadro */
-  let copyW = copy.offsetWidth, visivel = true;
-  if (window.ResizeObserver) new ResizeObserver(() => { copyW = copy.offsetWidth; }).observe(copy);
-  else window.addEventListener("resize", () => { copyW = copy.offsetWidth; });
+  /* a largura vem do ResizeObserver (sem ler o layout logo após montar o HTML, o que forçava um reflow) */
+  let copyW = 0, visivel = true;
+  if (window.ResizeObserver) new ResizeObserver((en) => { copyW = en[0].contentRect.width; }).observe(copy);
+  else { const medir = () => { copyW = copy.offsetWidth; }; requestAnimationFrame(medir); window.addEventListener("resize", medir); }
   if (window.IntersectionObserver) new IntersectionObserver((en) => { visivel = en[0].isIntersecting; }, { rootMargin: "100px" }).observe(viewport);
   let last = performance.now();
   function tick(ts) {

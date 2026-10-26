@@ -46,7 +46,7 @@ No Make, use "Redetermine data structure" no módulo do webhook e envie um orça
 - `assets/quem-sou-2.webp`: foto do "Quem sou"
 - `assets/portfolio-15.webp` a `portfolio-29.webp`: fotos do portfólio
 
-Cada foto do portfólio tem uma versão menor com `-480` no nome (por exemplo `portfolio-15-480.webp`), e o banner e o "Quem sou" têm `banner-2-800.webp` e `quem-sou-2-720.webp`. O celular carrega a versão menor e o computador a maior. Ao trocar uma foto, troque as duas versões.
+Cada foto do portfólio tem três tamanhos: o original (960 px), `-640` e `-480` (por exemplo `portfolio-15-640.webp`). O banner tem `banner-2.webp` (1400), `-1100`, `-800` e `-600`, e o "Quem sou" tem `quem-sou-2.webp` e `quem-sou-2-720.webp`. O navegador escolhe o menor que serve para a tela. Ao trocar uma foto, gere todos os tamanhos.
 
 ## Desempenho
 
