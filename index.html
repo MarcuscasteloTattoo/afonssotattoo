@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Afonso Tattoo</title>
+<meta name="description" content="Tatuagens autorais em Fine Line e Blackwork, criadas à mão livre na pele. Conheça o trabalho do tatuador Afonso e peça seu orçamento pelo WhatsApp.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preload" as="image" href="assets/banner-2.webp" imagesrcset="assets/banner-2-800.webp 800w, assets/banner-2.webp 1400w" imagesizes="(min-width: 900px) 56vw, 100vw" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@400;500;600&display=swap"></noscript>
+<style>
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+
+/* Layout: hero em tela cheia com retrato, letreiro, faixas alternadas nas 4 cores da paleta, colunas de até 72rem.
+   Paleta do portfólio do Afonso: vinho, grafite, preto e areia. Cada seção recebe uma classe tone-* no fim do CSS. */
+:root {
+  color-scheme: dark;
+  --background: oklch(0.145 0.004 20);
+  --foreground: oklch(0.92 0.014 70);
+  --card: oklch(0.205 0.004 40);
+  --primary: oklch(0.38 0.12 22);
+  --primary-fg: oklch(0.96 0.01 70);
+  --secondary: oklch(0.25 0.005 40);
+  --secondary-soft: oklch(0.175 0.004 30);
+  --secondary-fg: oklch(0.88 0.02 65);
+  --muted-fg: oklch(0.74 0.025 65);
+  --accent: oklch(0.68 0.12 25);
+  --border: oklch(0.31 0.006 40);
+  --destructive: oklch(0.7 0.18 25);
+  --hero-fg: oklch(0.97 0.008 75);
+  --hero-muted: oklch(0.86 0.02 68);
+  --overlay: oklch(0.1 0.004 20 / 0.62);
+  --scrim: oklch(0.06 0.004 20 / 0.94);
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius: 0.375rem;
+}
+[hidden] { display: none !important; }
+* { box-sizing: border-box; border-color: var(--border); }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap {
+  max-width: 72rem; margin: 0 auto;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+.section { padding-block: 4rem; }
+@media (min-width: 768px) { .section { padding-block: 6rem; } }
+.h2 { font-size: 1.875rem; line-height: 1.15; text-align: center; }
+@media (min-width: 768px) { .h2 { font-size: 2.25rem; } }
+.lead { font-size: .875rem; color: var(--muted-fg); text-align: center; margin: 1rem auto 0; max-width: 28rem; line-height: 1.6; }
+.eyebrow { font-size: .75rem; font-weight: 500; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); }
+.icon { width: 1rem; height: 1rem; flex: none; }
+
+/* HERO */
+.hero { position: relative; overflow: hidden; background: var(--background); color: var(--hero-fg); }
+.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 52% 38%; }
+.hero::after { content: ""; position: absolute; inset: 0; background: var(--overlay); }
+.hero-inner {
+  position: relative; z-index: 1; min-height: 78svh; display: flex; align-items: flex-end; justify-content: center;
+  padding-block: 5rem 3.5rem;
+}
+@media (min-width: 768px) { .hero-inner { min-height: 84svh; align-items: center; padding-block: 6rem; } }
+.hero-copy { max-width: 36rem; text-align: center; }
+.hero-brand { margin-bottom: 1rem; font-size: .75rem; font-weight: 500; letter-spacing: .35em; text-transform: uppercase; color: var(--hero-muted); }
+.hero h1 { font-size: 3rem; line-height: 1.05; color: var(--hero-fg); }
+@media (min-width: 768px) { .hero h1 { font-size: 4.5rem; } }
+@media (min-width: 1024px) { .hero h1 { font-size: 6rem; } }
+.hero-sub { margin: 1.5rem auto 0; max-width: 28rem; font-size: 1rem; line-height: 1.65; color: var(--hero-muted); }
+@media (min-width: 768px) { .hero-sub { font-size: 1.125rem; } }
+.hero-cta { margin-top: 2rem; }
+
+@media (min-width: 900px) {
+  .hero > img { left: auto; width: 56%; object-position: 50% 34%; }
+  .hero::after { background: linear-gradient(90deg, var(--background) 0 44%, oklch(0.145 0.004 20 / .55) 58%, oklch(0.145 0.004 20 / .12) 100%); }
+  .hero-inner { justify-content: flex-start; }
+  .hero-copy { text-align: left; max-width: 31rem; }
+  .hero-sub { margin-left: 0; }
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  border: 0; border-radius: 999px; background: var(--primary); color: var(--primary-fg);
+  padding: .9rem 1.75rem; font-size: .875rem; font-weight: 500; letter-spacing: .04em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer; transition: transform .2s ease;
+}
+.btn:hover { transform: scale(1.03); }
+.btn-light { background: var(--hero-fg); color: var(--primary); }
+
+/* MARQUEE */
+.marquee { position: relative; z-index: 1; border-block: 1px solid var(--border); background: var(--secondary); padding-block: .75rem; overflow: hidden; display: flex; }
+.marquee-track { display: flex; flex: none; align-items: center; gap: 2rem; padding-right: 2rem; white-space: nowrap; animation: marquee 30s linear infinite; }
+.marquee span { display: inline-flex; align-items: center; gap: 2rem; font-size: .75rem; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--muted-fg); }
+.marquee b { color: var(--accent); font-weight: 400; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ESTILOS */
+.band-card { background: var(--card); border-top: 1px solid var(--border); }
+.styles-viewport { overflow: hidden; padding-bottom: .5rem; touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab; }
+.styles-viewport.dragging { cursor: grabbing; }
+.styles-track { display: flex; width: max-content; will-change: transform; }
+.styles-copy { display: flex; }
+.style-card { width: 15rem; flex: none; padding-right: 1.5rem; }
+@media (min-width: 640px) { .style-card { width: 19rem; } }
+.style-card h3 { margin-top: 1.25rem; font-size: 1.25rem; }
+.style-card p { margin-top: .5rem; font-size: .875rem; line-height: 1.6; color: var(--muted-fg); }
+.style-card a { display: inline-block; margin-top: .75rem; font-size: .8rem; font-weight: 500; color: var(--accent); text-underline-offset: 4px; }
+.ctrls { margin-top: 1.25rem; display: flex; justify-content: center; gap: .75rem; }
+.ctrl {
+  display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--card); color: var(--foreground); cursor: pointer; transition: background .2s;
+}
+.ctrl:hover { background: var(--secondary); }
+.ctrl svg { width: 1.25rem; height: 1.25rem; }
+
+/* Imagem / espaço reservado */
+.ph { aspect-ratio: 4 / 5; width: 100%; max-width: 100%; border-radius: var(--radius); overflow: hidden; display: block; background: var(--secondary-soft); position: relative; }
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph svg.art { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ph .ph-label {
+  position: absolute; left: .75rem; right: .75rem; bottom: .7rem; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted-fg); text-align: center; line-height: 1.4;
+}
+
+/* PORTFÓLIO */
+.grid-pf { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+@media (min-width: 768px) { .grid-pf { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; } }
+.pf-item { padding: 0; border: 0; background: none; border-radius: .75rem; overflow: hidden; cursor: zoom-in; display: block; }
+.pf-item .ph { border-radius: .75rem; transition: transform .3s ease; }
+.pf-item:hover .ph { transform: scale(1.04); }
+.center { margin-top: 2.5rem; display: flex; justify-content: center; }
+
+
+/* AVALIAÇÕES */
+.band-soft { background: var(--secondary-soft); border-block: 1px solid var(--border); }
+.reviews { margin-top: 2.5rem; display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; scrollbar-width: none; }
+.reviews::-webkit-scrollbar { display: none; }
+.review {
+  flex: none; width: 86%; scroll-snap-align: start; min-height: 20rem; display: flex; flex-direction: column;
+  border: 1px solid var(--border); border-radius: .5rem; background: var(--card); padding: 1.5rem;
+}
+@media (min-width: 640px) { .review { width: calc(50% - .5rem); } }
+@media (min-width: 1024px) { .review { width: calc(33.333% - .667rem); } }
+.review-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .75rem; }
+.avatar { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 999px; background: var(--secondary); color: var(--secondary-fg); font-size: .875rem; font-weight: 600; }
+.review h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.review time { display: block; margin-top: .2rem; font-size: .75rem; color: var(--muted-fg); }
+.g-badge { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 999px; border: 1px solid var(--border); background: var(--card); box-shadow: none; }
+.g-badge svg { width: 1rem; height: 1rem; }
+.stars { margin-top: 1.25rem; display: flex; gap: .125rem; color: var(--accent); }
+.stars svg { width: 1rem; height: 1rem; }
+.review p { margin-top: 1rem; font-size: .875rem; line-height: 1.65; }
+.reviews-foot { margin-top: 2.25rem; text-align: center; }
+.rating { margin: 0 auto; display: inline-flex; align-items: center; gap: .6rem; padding: .55rem 1.1rem; border: 1px solid var(--border); border-radius: 999px; background: var(--card); color: var(--foreground); text-decoration: none; }
+.rating:hover { border-color: var(--accent); }
+.rating-num { font-family: var(--font-body); font-size: 1.6rem; font-weight: 600; letter-spacing: -.01em; line-height: 1; font-variant-numeric: tabular-nums; }
+.rating-stars { display: flex; gap: .1rem; color: oklch(0.8 0.16 80); }
+.rating-stars svg { width: 1.15rem; height: 1.15rem; }
+.rating-count { font-size: .8rem; color: var(--muted-fg); }
+.rating-g { width: 1.5rem; height: 1.5rem; flex: none; }
+.link-accent { display: inline-flex; align-items: center; gap: .5rem; font-size: .875rem; font-weight: 500; color: var(--accent); text-decoration: none; text-underline-offset: 4px; }
+.link-accent:hover { text-decoration: underline; }
+.small-muted { margin-top: .75rem; font-size: .75rem; color: var(--muted-fg); }
+
+/* VALORES MÍNIMOS (orçamento) */
+.min-prices { margin: 1.5rem auto 0; display: grid; gap: .75rem; max-width: 32rem; }
+@media (min-width: 560px) { .min-prices { grid-template-columns: 1fr 1fr; } }
+.min-prices p { display: grid; gap: .2rem; text-align: center; padding: .9rem 1rem; border: 1px solid var(--border); border-radius: .5rem; background: var(--card); }
+.min-prices span { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-fg); }
+.min-prices b { font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; }
+
+/* SOBRE */
+.about { display: grid; align-items: center; gap: 2.5rem; }
+@media (min-width: 768px) { .about { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 3.5rem; } }
+@media (min-width: 1024px) { .about { gap: 5rem; } }
+.about-img { aspect-ratio: 475 / 511; width: 100%; height: auto; max-width: 100%; border-radius: var(--radius); object-fit: cover; object-position: 50% 0%; display: block; }
+.about-copy { min-width: 0; }
+.about-copy h2 { font-size: 1.875rem; line-height: 1.15; }
+@media (min-width: 768px) { .about-copy h2 { font-size: 2.25rem; } }
+.about-copy p { margin-top: 1.25rem; line-height: 1.7; color: var(--muted-fg); max-width: 38rem; }
+.about-copy .link-accent { margin-top: 1.75rem; letter-spacing: .04em; text-transform: uppercase; }
+
+/* FORMULÁRIO */
+.form-wrap { max-width: 36rem; margin: 0 auto; }
+form { margin-top: 2.5rem; display: grid; gap: 1.25rem; }
+.row2 { display: grid; gap: 1.25rem; }
+@media (min-width: 640px) { .row2 { grid-template-columns: 1fr 1fr; } }
+label { display: block; margin-bottom: .375rem; font-size: .875rem; font-weight: 500; }
+input, select, textarea {
+  width: 100%; border: 1px solid var(--border); border-radius: .5rem; background: var(--card); color: var(--foreground);
+  padding: .75rem 1rem; font: inherit; font-size: .875rem;
+}
+textarea { resize: vertical; min-height: 6rem; }
+select {
+  appearance: none; -webkit-appearance: none; padding-right: 2.5rem; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23857565' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right .9rem center; background-size: 1rem;
+}
+input::placeholder, textarea::placeholder { color: oklch(0.58 0.02 60); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-error { font-size: .875rem; color: var(--destructive); }
+.btn-block { width: 100%; padding-block: 1rem; white-space: normal; }
+.btn-block:hover { transform: scale(1.02); }
+.sent {
+  border: 1px solid var(--border); border-radius: .5rem; background: var(--card); padding: 1.25rem; text-align: center;
+  display: grid; gap: .75rem; justify-items: center;
+}
+.sent p { font-size: .875rem; color: var(--muted-fg); line-height: 1.6; }
+.btn-wa { background: oklch(0.55 0.15 150); color: oklch(1 0 0); font-size: 1rem; letter-spacing: .06em; padding-block: 1.1rem; }
+.btn-wa .icon-wa { width: 1.4rem; height: 1.4rem; }
+.btn-wa:disabled { opacity: .8; cursor: wait; transform: none; }
+@media (max-width: 440px) { .btn-wa { font-size: .85rem; letter-spacing: .03em; gap: .6rem; padding-inline: 1rem; } .btn-wa .icon-wa { width: 1.25rem; height: 1.25rem; } }
+
+/* RODAPÉ */
+footer { border-top: 1px solid var(--border); }
+.foot { padding-block: 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; text-align: center; }
+.foot-brand { font-family: var(--font-display); font-size: 1.5rem; }
+.foot-row { display: flex; align-items: center; gap: .75rem; }
+.foot-ig { display: inline-grid; place-items: center; color: var(--muted-fg); transition: color .2s; }
+.foot-ig:hover { color: var(--foreground); }
+.foot-ig svg { width: 1.25rem; height: 1.25rem; }
+.foot-links a { color: var(--muted-fg); transition: color .2s; }
+.foot-links a:hover { color: var(--foreground); }
+.foot-links svg { width: 1.25rem; height: 1.25rem; }
+
+/* LIGHTBOX */
+.lightbox { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; background: var(--scrim); padding: 1rem; }
+.lightbox .lb-media { width: min(90vw, calc(85vh * 0.8)); max-height: 85vh; }
+.lightbox .lb-media .ph { border-radius: .5rem; }
+.lb-btn {
+  position: absolute; border: 0; border-radius: 999px; background: oklch(1 0 0 / .12); color: oklch(1 0 0);
+  padding: .5rem; cursor: pointer; display: grid; place-items: center;
+}
+.lb-btn:hover { background: oklch(1 0 0 / .22); }
+.lb-btn svg { width: 1.5rem; height: 1.5rem; }
+.lb-close { top: calc(1rem + env(safe-area-inset-top, 0px)); right: calc(1rem + env(safe-area-inset-right, 0px)); }
+.lb-prev { left: calc(.75rem + env(safe-area-inset-left, 0px)); }
+.lb-next { right: calc(.75rem + env(safe-area-inset-right, 0px)); }
+.lb-caption { position: absolute; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); left: 1rem; right: 1rem; text-align: center; color: oklch(0.9 0.018 70); font-size: .8rem; }
+
+
+/* TONS DAS SEÇÕES (paleta: preto, vinho, grafite, areia) */
+.tone-black, .tone-graphite, .tone-wine, .tone-sand, .tone-taupe { background: var(--background); color: var(--foreground); }
+.tone-black {
+  color-scheme: dark;
+  --background: oklch(0.145 0.004 20); --foreground: oklch(0.92 0.014 70); --card: oklch(0.205 0.004 40);
+  --secondary: oklch(0.25 0.005 40); --secondary-soft: oklch(0.175 0.004 30); --muted-fg: oklch(0.74 0.025 65);
+  --accent: oklch(0.68 0.12 25); --border: oklch(0.31 0.006 40); --primary: oklch(0.38 0.12 22); --primary-fg: oklch(0.96 0.01 70);
+}
+.tone-graphite {
+  color-scheme: dark;
+  --background: oklch(0.29 0.003 40); --foreground: oklch(0.94 0.01 70); --card: oklch(0.34 0.004 40);
+  --secondary: oklch(0.38 0.004 40); --secondary-soft: oklch(0.32 0.004 40); --muted-fg: oklch(0.8 0.015 65);
+  --accent: oklch(0.74 0.11 30); --border: oklch(0.42 0.005 40); --primary: oklch(0.38 0.12 22); --primary-fg: oklch(0.96 0.01 70);
+}
+.tone-wine {
+  color-scheme: dark;
+  --background: oklch(0.29 0.095 22); --foreground: oklch(0.95 0.012 70); --card: oklch(0.34 0.095 22);
+  --secondary: oklch(0.38 0.09 22); --secondary-soft: oklch(0.32 0.095 22); --muted-fg: oklch(0.86 0.03 50);
+  --accent: oklch(0.85 0.05 65); --border: oklch(0.43 0.09 22); --primary: oklch(0.15 0.004 20); --primary-fg: oklch(0.95 0.012 70);
+}
+.tone-sand {
+  color-scheme: light;
+  --background: oklch(0.9 0.018 70); --foreground: oklch(0.17 0.005 30); --card: oklch(0.94 0.012 70);
+  --secondary: oklch(0.84 0.025 65); --secondary-soft: oklch(0.87 0.02 65); --muted-fg: oklch(0.38 0.02 50);
+  --accent: oklch(0.42 0.13 22); --border: oklch(0.77 0.025 65); --primary: oklch(0.36 0.12 22); --primary-fg: oklch(0.96 0.01 70);
+}
+.tone-taupe {
+  color-scheme: light;
+  --background: oklch(0.7 0.03 65); --foreground: oklch(0.15 0.005 30); --card: oklch(0.78 0.025 65);
+  --secondary: oklch(0.66 0.03 65); --secondary-soft: oklch(0.76 0.026 65); --muted-fg: oklch(0.27 0.02 45);
+  --accent: oklch(0.33 0.12 22); --border: oklch(0.6 0.03 60); --primary: oklch(0.15 0.004 20); --primary-fg: oklch(0.95 0.012 70);
+}
+.marquee { background: oklch(0.29 0.095 22); border-color: oklch(0.38 0.09 22); }
+.marquee span { color: oklch(0.88 0.03 55); }
+.marquee b { color: oklch(0.75 0.06 60); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
+  .btn, .pf-item .ph { transition: none; }
+}
+</style>
+<meta property="og:title" content="Afonso Tattoo">
+<meta property="og:description" content="Fine Line e Blackwork autorais, em técnica freehand. Orçamento pelo WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="assets/banner-2.webp">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-msg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M11.5 2.3a.6.6 0 0 1 1 0l2.6 5.4 5.9.8a.6.6 0 0 1 .3 1l-4.3 4.2 1 5.9a.6.6 0 0 1-.8.6L12 17.4l-5.3 2.8a.6.6 0 0 1-.8-.6l1-5.9-4.3-4.2a.6.6 0 0 1 .3-1l5.9-.8Z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C8.85 3 3 8.73 3 15.77c0 2.25.6 4.44 1.75 6.36L3 28.5l6.57-1.69a13.2 13.2 0 0 0 6.47 1.67C23.23 28.48 29 22.75 29 15.71 29 8.73 23.23 3 16.04 3Zm7.59 18.02c-.32.88-1.88 1.69-2.61 1.79-.68.1-1.54.14-2.48-.15-.57-.18-1.3-.42-2.24-.82-3.94-1.67-6.52-5.57-6.72-5.83-.2-.26-1.6-2.09-1.6-3.99 0-1.9 1.01-2.83 1.37-3.22.36-.39.78-.49 1.05-.49h.75c.24 0 .56-.09.88.65.32.75 1.1 2.64 1.2 2.83.1.2.16.42.03.68-.13.26-.2.42-.39.65-.2.23-.41.51-.59.68-.2.2-.4.41-.17.8.23.39 1.02 1.64 2.19 2.66 1.5 1.31 2.77 1.72 3.16 1.92.39.2.62.16.85-.1.23-.26.98-1.12 1.24-1.51.26-.39.52-.33.88-.2.36.13 2.29 1.06 2.68 1.25.39.2.65.29.75.46.1.16.1.94-.22 1.82Z"/></symbol>
+  </defs>
+</svg>
+
+<header class="hero">
+  <img src="assets/banner-2.webp" srcset="assets/banner-2-800.webp 800w, assets/banner-2.webp 1400w" sizes="(min-width: 900px) 56vw, 100vw" width="1400" height="2100" alt="Afonso, de camiseta preta, no estúdio com desenhos emoldurados ao fundo" fetchpriority="high" decoding="async">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="hero-brand">Afonso Tattoo</p>
+      <h1>Fluidez, forma e arte autoral</h1>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+</header>
+
+<main>
+  <section class="band-card tone-sand">
+    <div class="wrap section">
+      <h2 class="h2" style="margin-bottom:2.5rem">Estilos e diferenciais</h2>
+      <div id="styles" aria-label="Estilos de trabalho">
+        <div class="styles-viewport" id="styles-viewport"><div class="styles-track" id="styles-track"></div></div>
+        <div class="ctrls">
+          <button type="button" class="ctrl" id="styles-prev" aria-label="Estilo anterior"><svg><use href="#i-left"/></svg></button>
+          <button type="button" class="ctrl" id="styles-next" aria-label="Próximo estilo"><svg><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tone-graphite" id="portfolio"><div class="wrap section">
+    <h2 class="h2">Trabalhos recentes</h2>
+    <div class="grid-pf" id="portfolio-grid"></div>
+    <div class="center"><a class="btn" href="#orcamento"><svg class="icon"><use href="#i-msg"/></svg>Quero fazer minha tatuagem</a></div>
+  </div></section>
+
+
+  <section class="tone-sand" id="sobre"><div class="wrap section">
+    <div class="about">
+      <img class="about-img" src="assets/quem-sou-2.webp" srcset="assets/quem-sou-2-720.webp 720w, assets/quem-sou-2.webp 1000w" sizes="(min-width: 768px) 55vw, 100vw" width="1000" height="1250" alt="Afonso sentado no estúdio, de regata preta, com o braço fechado em blackwork" loading="lazy" decoding="async">
+      <div class="about-copy">
+        <h2>Paulo Afonso</h2>
+        <p>Minha relação com a arte começou ainda na escola, através do desenho e do estudo de diferentes técnicas artísticas. Em 2020, iniciei minha trajetória na tatuagem e, desde então, venho aprofundando meus conhecimentos e aprimorando minha técnica.</p>
+        <p>Ao longo dos anos, desenvolvi maior afinidade com o Fine Line e o Blackwork, sem deixar de explorar o realismo e outras possibilidades dentro da arte. Minha experiência também inclui cursos de desenho e arte, além de exposições como artista.</p>
+        <p>Hoje, com mais de 500 peles tatuadas, meu trabalho é voltado à criação de artes autorais, desenvolvidas com atenção aos detalhes, à composição e à individualidade de cada projeto.</p>
+        <a class="link-accent" href="https://www.instagram.com/afonssotattoo/" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-ig"/></svg>@afonssotattoo</a>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="band-soft tone-black" id="orcamento" style="border-bottom:0">
+    <div class="wrap section">
+      <div class="form-wrap">
+        <h2 class="h2">Faça seu orçamento</h2>
+        <p class="lead" style="max-width:32rem">Orçamento personalizado conforme a dimensão da arte e o número estimado de sessões. O valor é definido de acordo com o projeto e o tamanho da tatuagem.</p>
+        <div class="min-prices">
+          <p><span>Trabalhos pequenos</span><b>a partir de R$ 400</b></p>
+          <p><span>Projetos maiores e mais elaborados</span><b>a partir de R$ 800</b></p>
+        </div>
+        <form id="quote-form" novalidate>
+          <input type="text" name="website" id="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div>
+            <label for="nome">Seu nome</label>
+            <input id="nome" name="nome" required maxlength="100" autocomplete="name" placeholder="Como posso te chamar?">
+          </div>
+          <div>
+            <label for="whatsapp">Seu WhatsApp</label>
+            <input id="whatsapp" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel-national" required maxlength="15" placeholder="(DDD) 99999-9999">
+          </div>
+          <div class="row2">
+            <div>
+              <label for="local">Local do corpo</label>
+              <select id="local" name="local" required></select>
+            </div>
+            <div>
+              <label for="tamanho">Tamanho aproximado</label>
+              <select id="tamanho" name="tamanho" required></select>
+            </div>
+          </div>
+          <div>
+            <label for="estilo">Estilo da tatuagem</label>
+            <select id="estilo" name="estilo" required></select>
+          </div>
+          <div>
+            <label for="investimento">Qual o seu orçamento para essa tatuagem?</label>
+            <select id="investimento" name="investimento" required></select>
+          </div>
+          <div>
+            <label for="ideia">Ideia da tatuagem</label>
+            <textarea id="ideia" name="ideia" required rows="3" maxlength="1000" placeholder="Conte o que você imagina: tema, referências, significado…"></textarea>
+          </div>
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+          <button type="submit" class="btn btn-block btn-wa" id="submit-btn"><svg class="icon icon-wa"><use href="#i-wa"/></svg><span id="submit-label">Quero receber meu orçamento</span></button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="tone-graphite">
+  <div class="wrap foot">
+    <div class="foot-row">
+      <p class="foot-brand">Afonso Tattoo</p>
+      <a class="foot-ig" href="https://www.instagram.com/afonssotattoo/" target="_blank" rel="noopener noreferrer" aria-label="Instagram do Afonso"><svg><use href="#i-ig"/></svg></a>
+    </div>
+    <p class="small-muted" style="margin:0">© <span id="year">2026</span> Afonso Tattoo. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+  <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Fechar"><svg><use href="#i-x"/></svg></button>
+  <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Foto anterior"><svg><use href="#i-left"/></svg></button>
+  <div class="lb-media" id="lb-media"></div>
+  <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Próxima foto"><svg><use href="#i-right"/></svg></button>
+  <p class="lb-caption" id="lb-caption"></p>
+</div>
+
+<script>
+/* CONFIGURAÇÃO — mesma estrutura do site-config.ts original.
+   As fotos das tatuagens ficavam no servidor do Lovable e não vieram no zip:
+   preencha "imagem"/"src" com a URL (ou data:URI) de cada foto. Vazio = espaço reservado. */
+const site = {
+  /* WhatsApp: com o número (DDI+DDD+celular, só dígitos, ex.: "5511999999999") a mensagem do orçamento já abre escrita.
+     Sem o número, o site copia a mensagem e abre o link comercial abaixo; a pessoa só cola. */
+  whatsappNumero: "",
+  whatsappLink: "https://wa.me/message/XOGWFPZJYVEXI1",
+  /* Make (Integromat): coloque aqui o endereço do webhook do Afonso. Vazio = não envia. */
+  webhook: "https://hook.eu2.make.com/h6gttecbdri8aci2e5olpl8mt6x8qyfe",
+  mensagemWhatsApp: "Olá, Afonso! Acabei de preencher o formulário do site e quero fazer meu orçamento.",
+  marquee: ["FINE LINE", "BLACKWORK", "FREEHAND", "ARTE AUTORAL", "FLUIDEZ", "ABSTRAÇÃO", "REALISMO"],
+  estilos: [
+    { titulo: "Fine Line e Blackwork", texto: "Criações originais que combinam formas orgânicas, abstração, fluidez e referências ao cubismo.", imagem: "assets/portfolio-16.webp", alt: "Costas com olho dentro de triângulo, asas translúcidas e ornamentos em blackwork" },
+    { titulo: "Técnica Freehand", texto: "A arte é criada diretamente na pele, com pincéis e canetões, acompanhando e respeitando a anatomia de cada cliente.", imagem: "assets/portfolio-24.webp", alt: "Ornamentos fluidos em blackwork do ombro ao punho, criados à mão livre" },
+    { titulo: "Estilo próprio", texto: "Uma identidade marcada pela fluidez das formas, pela abstração e por composições únicas.", imagem: "assets/portfolio-23.webp", alt: "Ornamentos ondulados com olhos ao longo do antebraço" },
+    { titulo: "Realismo", texto: "Trabalhos em realismo, explorando diferentes estilos e possibilidades dentro da tatuagem.", imagem: "assets/portfolio-20.webp", alt: "Esqueleto pirata com chapéu e casaco no braço, em preto e cinza" },
+  ],
+  portfolio: [
+    { src: "assets/portfolio-15.webp", alt: "Costas fechadas com dois beija-flores, penas e ornamentos em linhas fluidas" },
+    { src: "assets/portfolio-16.webp", alt: "Costas com olho dentro de triângulo, asas translúcidas e ornamentos ao longo da coluna" },
+    { src: "assets/portfolio-17.webp", alt: "Costas fechadas com olho e raios, flores de lótus e ornamentos em traço fino" },
+    { src: "assets/portfolio-18.webp", alt: "Pássaro de asas abertas com traços ornamentais nas costas" },
+    { src: "assets/portfolio-19.webp", alt: "Dragão oriental e caveira no braço, em preto e cinza" },
+    { src: "assets/portfolio-20.webp", alt: "Esqueleto pirata com chapéu e casaco no braço, em preto e cinza" },
+    { src: "assets/portfolio-21.webp", alt: "Polvo com tentáculos ao longo da perna inteira" },
+    { src: "assets/portfolio-22.webp", alt: "Estátua clássica com pássaro, coluna e serpente na coxa" },
+    { src: "assets/portfolio-23.webp", alt: "Ornamentos ondulados com olhos ao longo do antebraço" },
+    { src: "assets/portfolio-24.webp", alt: "Ornamentos fluidos do ombro ao punho em braço fechado" },
+    { src: "assets/portfolio-25.webp", alt: "Caveira de gato com chifres e traços ornamentais na panturrilha" },
+    { src: "assets/portfolio-26.webp", alt: "Andorinhas em voo com folhagens ao longo da perna" },
+    { src: "assets/portfolio-27.webp", alt: "Rosto feminino com cabelos esvoaçantes na lateral do tronco" },
+    { src: "assets/portfolio-28.webp", alt: "Espada ornamental com arabescos no antebraço" },
+    { src: "assets/portfolio-29.webp", alt: "Três clientes de costas mostrando costas fechadas feitas no estúdio" },
+  ],
+  /* Avaliações do Google: { nome, tempo, texto }, da mais recente para a mais antiga. A seção está fora da página por enquanto. */
+  avaliacoes: [],
+  investimentos: ["De R$ 400 a R$ 800", "De R$ 800 a R$ 1.500", "De R$ 1.500 a R$ 3.000", "Acima de R$ 3.000", "Ainda não sei"],
+  locais: ["Braço", "Antebraço", "Perna", "Costas", "Peito", "Costela", "Barriga", "Outros"],
+  estilosForm: ["Fine Line", "Blackwork", "Freehand (desenho direto na pele)", "Realismo", "Minimalista", "Ainda não sei"],
+  tamanhos: ["2 a 8 cm", "10 a 15 cm", "15 a 25 cm", "25 a 28 cm (uma sessão)", "Projeto fechado (várias sessões)"],
+};
+
+const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+/* Desenhos em traço fino para os espaços reservados (até as fotos voltarem) */
+const motifs = {
+  floral: '<g><path d="M100 205 C 98 170 104 140 100 110"/><path d="M100 168 C 80 160 70 146 72 132 C 88 136 98 150 100 168"/><path d="M101 150 C 120 142 130 128 128 114 C 112 118 102 132 101 150"/>' +
+    [0,60,120,180,240,300].map(a => `<ellipse cx="100" cy="88" rx="9" ry="20" transform="rotate(${a} 100 108)"/>`).join("") + '<circle cx="100" cy="108" r="5"/></g>',
+  ramo: '<g><path d="M70 210 C 95 170 110 120 135 60"/>' +
+    [0,1,2,3,4,5].map(i => { const y = 190 - i * 24, x = 79 + i * 9.6; return `<path d="M${x} ${y} c -22 -4 -30 -16 -30 -26 c 16 2 28 12 30 26"/><path d="M${x+3} ${y-8} c 20 -8 26 -22 24 -32 c -14 4 -24 16 -24 32"/>`; }).join("") + '</g>',
+  pata: '<g><ellipse cx="100" cy="140" rx="26" ry="22"/><ellipse cx="68" cy="104" rx="10" ry="14" transform="rotate(-20 68 104)"/><ellipse cx="90" cy="88" rx="10" ry="15"/><ellipse cx="112" cy="88" rx="10" ry="15"/><ellipse cx="132" cy="104" rx="10" ry="14" transform="rotate(20 132 104)"/><path d="M60 180 C 80 196 120 196 140 180"/></g>',
+  bussola: '<g><circle cx="100" cy="125" r="52"/><circle cx="100" cy="125" r="44" stroke-dasharray="2 5"/><path d="M100 65 L110 125 L100 185 L90 125 Z"/><path d="M40 125 L100 117 L160 125 L100 133 Z"/><circle cx="100" cy="125" r="4"/></g>',
+  sol: '<g><circle cx="100" cy="120" r="22"/>' + Array.from({ length: 16 }, (_, i) => { const a = i * Math.PI / 8, r1 = 32, r2 = i % 2 ? 52 : 66; return `<line x1="${(100 + r1 * Math.cos(a)).toFixed(1)}" y1="${(120 + r1 * Math.sin(a)).toFixed(1)}" x2="${(100 + r2 * Math.cos(a)).toFixed(1)}" y2="${(120 + r2 * Math.sin(a)).toFixed(1)}"/>`; }).join("") + '</g>',
+  linhas: '<g><path d="M60 60 C 140 90 50 130 120 160 S 90 200 130 215"/><path d="M80 50 C 160 85 70 125 140 155"/><path d="M50 90 C 110 110 60 150 100 190"/></g>',
+  lua: '<g><path d="M120 70 A 55 55 0 1 0 120 180 A 42 42 0 1 1 120 70 Z"/><circle cx="140" cy="90" r="2"/><circle cx="150" cy="130" r="1.5"/><circle cx="132" cy="160" r="1.5"/><path d="M146 108 l4 -8 l4 8 l-4 8 z"/></g>',
+  geo: '<g><circle cx="100" cy="125" r="50"/><polygon points="100,75 143,150 57,150"/><polygon points="100,175 57,100 143,100"/><circle cx="100" cy="125" r="18"/><line x1="100" y1="55" x2="100" y2="195"/></g>',
+  letra: '<g><path d="M55 140 C 60 110 75 105 78 120 C 80 135 70 150 82 140 C 95 128 98 112 105 124 C 110 134 112 146 122 132 C 130 120 136 118 140 128 C 143 136 148 140 152 132"/><path d="M60 160 L140 160" stroke-dasharray="1 6"/></g>',
+};
+function placeholder(motivo, label) {
+  return `<span class="ph" role="img" aria-label="${esc(label)}">
+    <svg class="art" viewBox="0 0 200 250" preserveAspectRatio="xMidYMid meet" fill="none" stroke="oklch(0.36 0.03 48)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${motifs[motivo] || motifs.ramo}</svg>
+    <span class="ph-label">Foto a adicionar</span></span>`;
+}
+/* fotos em assets/ têm uma versão menor (-480) para telas pequenas */
+function srcset(src, sizes) {
+  if (!sizes || !/^assets\/(portfolio|estilo)-[\w-]+\.webp$/.test(src)) return "";
+  return ` srcset="${src.replace(/\.webp$/, "-480.webp")} 480w, ${src} 900w" sizes="${sizes}"`;
+}
+function media(src, alt, motivo, lazy = true, sizes = "") {
+  return src ? `<span class="ph"><img src="${esc(src)}"${srcset(src, sizes)} alt="${esc(alt)}" ${lazy ? 'loading="lazy"' : ""} decoding="async" draggable="false"></span>` : placeholder(motivo, alt);
+}
+
+/* Letreiro */
+const words = [...site.marquee, ...site.marquee, ...site.marquee, ...site.marquee];
+$("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("");
+
+/* Estilos: carrossel contínuo, pausa no hover, arrasto e setas */
+(function () {
+  const track = $("styles-track"), viewport = $("styles-viewport");
+  const card = (e) => `<article class="style-card">${media(e.imagem, e.alt || e.titulo, e.motivo, true, "(min-width: 640px) 19rem, 15rem")}<h3>${e.titulo}</h3><p>${e.texto}</p></article>`;
+  track.innerHTML = [0, 1, 2, 3].map((c) => `<div class="styles-copy"${c ? ' aria-hidden="true"' : ""}>${site.estilos.map(card).join("")}</div>`).join("");
+  track.querySelectorAll('.styles-copy[aria-hidden] a').forEach((a) => a.tabIndex = -1);
+  const copy = track.firstElementChild;
+  const st = { paused: false, pos: 0, target: null, drag: null, moved: 0 };
+  /* largura medida só quando muda e animação parada fora da tela: evita reflow a cada quadro */
+  let copyW = copy.offsetWidth, visivel = true;
+  if (window.ResizeObserver) new ResizeObserver(() => { copyW = copy.offsetWidth; }).observe(copy);
+  else window.addEventListener("resize", () => { copyW = copy.offsetWidth; });
+  if (window.IntersectionObserver) new IntersectionObserver((en) => { visivel = en[0].isIntersecting; }, { rootMargin: "100px" }).observe(viewport);
+  let last = performance.now();
+  function tick(ts) {
+    const dt = Math.min((ts - last) / 1000, 0.1); last = ts;
+    const w = copyW;
+    if (w > 0 && visivel) {
+      if (st.drag) {} else if (st.target !== null) {
+        const d = st.target - st.pos;
+        if (Math.abs(d) < 0.5) { st.pos = st.target; st.target = null; } else st.pos += d * Math.min(1, dt * 9);
+      } else if (!st.paused && !reduced) st.pos += (w / 14) * dt;
+      if (st.pos >= w) { st.pos -= w; if (st.target !== null) st.target -= w; if (st.drag) st.drag.pos -= w; }
+      else if (st.pos < 0) { st.pos += w; if (st.target !== null) st.target += w; if (st.drag) st.drag.pos += w; }
+      track.style.transform = `translate3d(${-st.pos}px,0,0)`;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  const step = (dir) => { const c = copy.querySelector("article"); st.target = (st.target ?? st.pos) + dir * (c ? c.offsetWidth : 280); };
+  $("styles-prev").onclick = () => step(-1);
+  $("styles-next").onclick = () => step(1);
+  const box = $("styles");
+  box.addEventListener("mouseenter", () => st.paused = true);
+  box.addEventListener("mouseleave", () => { st.paused = false; st.drag = null; viewport.classList.remove("dragging"); });
+  box.addEventListener("focusin", () => st.paused = true);
+  box.addEventListener("focusout", () => st.paused = false);
+  viewport.addEventListener("pointerdown", (e) => { st.drag = { x: e.clientX, pos: st.pos }; st.target = null; st.moved = 0; viewport.classList.add("dragging"); });
+  viewport.addEventListener("pointermove", (e) => { if (st.drag) { st.moved = Math.abs(e.clientX - st.drag.x); st.pos = st.drag.pos - (e.clientX - st.drag.x); } });
+  const end = () => { st.drag = null; viewport.classList.remove("dragging"); };
+  viewport.addEventListener("pointerup", end);
+  viewport.addEventListener("pointercancel", end);
+  viewport.addEventListener("click", (e) => {
+    const a = e.target.closest("a[data-estilo]");
+    if (!a) return;
+    if (st.moved > 6) { e.preventDefault(); return; }
+    $("estilo").value = a.dataset.estilo;
+  });
+})();
+
+/* Portfólio + lightbox */
+(function () {
+  const grid = $("portfolio-grid");
+  grid.innerHTML = site.portfolio.map((f, i) => `<button type="button" class="pf-item" data-i="${i}" aria-label="Ampliar: ${esc(f.alt)}">${media(f.src, f.alt, f.motivo, true, "(min-width: 768px) 23rem, 50vw")}</button>`).join("");
+  const lb = $("lightbox");
+  let cur = null, opener = null;
+  const n = site.portfolio.length;
+  function show(i) {
+    cur = (i + n) % n;
+    const f = site.portfolio[cur];
+    $("lb-media").innerHTML = media(f.src, f.alt, f.motivo, false);
+    $("lb-caption").textContent = f.alt;
+  }
+  function open(i, btn) { opener = btn; show(i); lb.hidden = false; document.body.style.overflow = "hidden"; $("lb-close").focus(); }
+  function close() { lb.hidden = true; cur = null; document.body.style.overflow = ""; if (opener) opener.focus(); }
+  grid.addEventListener("click", (e) => { const b = e.target.closest(".pf-item"); if (b) open(+b.dataset.i, b); });
+  lb.addEventListener("click", (e) => { if (e.target === lb || e.target.id === "lb-caption") close(); });
+  $("lb-close").onclick = close;
+  $("lb-prev").onclick = (e) => { e.stopPropagation(); show(cur - 1); };
+  $("lb-next").onclick = (e) => { e.stopPropagation(); show(cur + 1); };
+  window.addEventListener("keydown", (e) => {
+    if (cur === null) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight") show(cur + 1);
+    if (e.key === "ArrowLeft") show(cur - 1);
+  });
+})();
+
+/* Avaliações: carrossel com avanço automático a cada 4 s */
+(function () {
+  const box = $("reviews"), wrap = $("reviews-box");
+  if (!box || !wrap) return; /* seção de avaliações fora da página por enquanto */
+  if (!site.avaliacoes.length) { wrap.hidden = true; return; }
+  const g = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
+  const stars = Array.from({ length: 5 }, () => '<svg aria-hidden="true"><use href="#i-star"/></svg>').join("");
+  box.innerHTML = site.avaliacoes.map((a) => {
+    const ini = a.nome.split(" ").slice(0, 2).map((p) => p[0]).join("");
+    return `<article class="review"><div class="review-head"><div class="avatar" aria-hidden="true">${ini}</div><div style="min-width:0"><h3>${esc(a.nome)}</h3><time>${a.tempo}</time></div><span class="g-badge" role="img" aria-label="Avaliação do Google">${g}</span></div><div class="stars" role="img" aria-label="5 de 5 estrelas">${stars}</div><p>${esc(a.texto)}</p></article>`;
+  }).join("");
+  let paused = false;
+  function scroll(dir) {
+    const c = box.querySelector("article"), w = (c ? c.offsetWidth : box.clientWidth) + 16;
+    const atEnd = box.scrollLeft + box.clientWidth >= box.scrollWidth - 8, atStart = box.scrollLeft <= 8;
+    const behavior = reduced ? "auto" : "smooth";
+    if (dir === 1 && atEnd) return box.scrollTo({ left: 0, behavior });
+    if (dir === -1 && atStart) return box.scrollTo({ left: box.scrollWidth, behavior });
+    box.scrollBy({ left: dir * w, behavior });
+  }
+  $("rev-prev").onclick = () => scroll(-1);
+  $("rev-next").onclick = () => scroll(1);
+  ["mouseenter", "focusin", "pointerdown"].forEach((ev) => wrap.addEventListener(ev, () => paused = true));
+  ["mouseleave", "focusout", "pointerup"].forEach((ev) => wrap.addEventListener(ev, () => paused = false));
+  if (!reduced) setInterval(() => { if (!paused && !document.hidden) scroll(1); }, 4000);
+})();
+
+/* Formulário → mensagem pronta no WhatsApp */
+(function () {
+  const fill = (id, opts) => { $(id).innerHTML = '<option value="" disabled selected hidden></option>' + opts.map((o) => `<option>${o}</option>`).join(""); };
+  fill("local", site.locais); fill("tamanho", site.tamanhos); fill("estilo", site.estilosForm); fill("investimento", site.investimentos);
+  const form = $("quote-form"), err = $("form-error"), btn = $("submit-btn"), label = $("submit-label");
+  /* celular: DDD + 9 + 8 dígitos, ex.: 11999999999 */
+  function soDigitos(v) {
+    let d = String(v || "").replace(/\D/g, "");
+    if (d.length > 11 && d.startsWith("55")) d = d.slice(2);
+    return d.slice(0, 11);
+  }
+  function normPhone(v) {
+    const d = soDigitos(v);
+    return /^[1-9]{2}9\d{8}$/.test(d) ? d : null;
+  }
+  /* máscara enquanto digita: (11) 99999-9999 */
+  function mascara(d) {
+    if (!d) return "";
+    if (d.length <= 2) return `(${d}`;
+    if (d.length <= 7) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+    return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+  }
+  const tel = $("whatsapp");
+  tel.addEventListener("input", () => {
+    const novo = mascara(soDigitos(tel.value));
+    if (tel.value !== novo) { tel.value = novo; try { tel.setSelectionRange(novo.length, novo.length); } catch (e) {} }
+  });
+  function fmt(d) { return d.length === 11 ? `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}` : `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`; }
+  let ultimoEnvio = "";
+  /* MODO DE TESTE: abra o site com ?teste no fim do endereço (seusite.com/?teste).
+     Mostra cada etapa do envio na tela e não redireciona sozinho. */
+  const VERSAO = "23/10/2026 10:55";
+  const modoTeste = /(^|[?&#])teste\b/.test(location.search.slice(1) + "&" + location.hash.slice(1));
+  let painel = null;
+  function log(m) {
+    try { console.log("[orcamento]", m); } catch (e) {}
+    if (!modoTeste) return;
+    if (!painel) {
+      painel = document.createElement("pre");
+      painel.style.cssText = "white-space:pre-wrap;font:12px/1.5 ui-monospace,monospace;background:var(--card);border:1px solid var(--border);border-radius:.5rem;padding:.75rem;margin:0;overflow-x:auto";
+      form.appendChild(painel);
+    }
+    painel.textContent += m + "\n";
+  }
+  if (modoTeste) {
+    log("Modo de teste ativo. Versão do site: " + VERSAO);
+    log("sendBeacon disponível: " + !!navigator.sendBeacon + " | fetch disponível: " + !!window.fetch);
+    window.addEventListener("error", (ev) => log("ERRO na página: " + ev.message));
+    window.addEventListener("unhandledrejection", (ev) => log("ERRO (promise): " + (ev.reason && ev.reason.message || ev.reason)));
+  }
+  const espera = (ms) => new Promise((r) => setTimeout(r, ms));
+  /* Envia os campos ao Make. Nunca trava: qualquer erro é ignorado e o WhatsApp abre do mesmo jeito. */
+  function enviarWebhook(dados) {
+    try {
+      const chave = JSON.stringify(Object.assign({}, dados, { data_envio: "", pagina: "" }));
+      if (!site.webhook || chave === ultimoEnvio) return Promise.resolve(); /* evita duplicar o mesmo orçamento */
+      ultimoEnvio = chave;
+      const corpo = new URLSearchParams(dados).toString();
+      /* reserva: sendBeacon (só se o fetch for recusado) */
+      const viaBeacon = (motivo) => {
+        let ok = false;
+        try {
+          if (navigator.sendBeacon) ok = navigator.sendBeacon(site.webhook, new Blob([corpo], { type: "application/x-www-form-urlencoded" }));
+        } catch (e) {}
+        log("Fetch falhou (" + motivo + "). Reserva sendBeacon: " + (ok ? "colocado na fila" : "também recusado"));
+      };
+      /* principal: fetch, que avisa se o Make respondeu. Espera no máximo 4 s antes de seguir para o WhatsApp. */
+      log("Webhook: enviando para o Make…");
+      let envio;
+      try {
+        envio = fetch(site.webhook, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: corpo })
+          .then(() => log("Webhook: o Make recebeu o envio ✓"))
+          .catch((e) => viaBeacon(e && e.message || "erro de rede"));
+      } catch (e) {
+        viaBeacon(e && e.message || "erro");
+        return espera(400);
+      }
+      return Promise.race([envio, espera(4000).then(() => log("Webhook: sem resposta em 4 s, seguindo assim mesmo"))]);
+    } catch (e) {
+      log("Webhook: ERRO " + (e && e.message));
+      return Promise.resolve();
+    }
+  }
+  /* data e hora no padrão brasileiro, horário de Brasília: 22/10/2026 16:54:12 */
+  function dataBR(d = new Date()) {
+    try {
+      const p = new Intl.DateTimeFormat("pt-BR", { timeZone: "America/Sao_Paulo", day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }).formatToParts(d);
+      const g = (t) => (p.find((x) => x.type === t) || {}).value;
+      return `${g("day")}/${g("month")}/${g("year")} ${g("hour")}:${g("minute")}:${g("second")}`;
+    } catch (e) {
+      return d.toLocaleString("pt-BR");
+    }
+  }
+  let enviando = false;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const v = (id) => $(id).value.trim();
+    if ($("website").value) return;
+    let msg = "";
+    const phone = normPhone(v("whatsapp"));
+    if (!v("nome")) msg = "Informe seu nome.";
+    else if (!phone) msg = "Digite o DDD e o celular com o 9. Ex.: (11) 99999-9999";
+    else if (!v("local")) msg = "Escolha o local do corpo.";
+    else if (!v("tamanho")) msg = "Escolha o tamanho aproximado.";
+    else if (!v("estilo")) msg = "Escolha o estilo da tatuagem.";
+    else if (!v("investimento")) msg = "Escolha o seu orçamento para essa tatuagem.";
+    else if (!v("ideia")) msg = "Conte sua ideia de tatuagem.";
+    if (msg) { err.textContent = msg; err.hidden = false; return; }
+    if (enviando) return;
+    err.hidden = true;
+    const linhas = [
+      site.mensagemWhatsApp,
+      `*Nome:* ${v("nome")}`,
+      `*WhatsApp:* ${fmt(phone)}`,
+      v("local") && `*Local do corpo:* ${v("local")}`,
+      v("tamanho") && `*Tamanho aproximado:* ${v("tamanho")}`,
+      v("estilo") && `*Estilo:* ${v("estilo")}`,
+      v("investimento") && `*Orçamento:* ${v("investimento")}`,
+      `*Ideia:* ${v("ideia")}`,
+    ].filter(Boolean).join("\n");
+    const dados = {
+      nome: v("nome"),
+      whatsapp: fmt(phone),
+      whatsapp_numero: "55" + phone,
+      local_do_corpo: v("local"),
+      tamanho: v("tamanho"),
+      estilo: v("estilo"),
+      orcamento: v("investimento"),
+      ideia: v("ideia"),
+      data_envio: dataBR(),
+      pagina: location.href,
+    };
+    const urlWhatsApp = site.whatsappNumero ? `https://wa.me/${site.whatsappNumero}?text=${encodeURIComponent(linhas)}` : site.whatsappLink;
+    enviando = true; btn.disabled = true; label.textContent = "Enviando…";
+    log("Formulário válido. Dados: " + JSON.stringify(dados));
+    try { await enviarWebhook(dados); } catch (e) { log("ERRO no envio: " + (e && e.message)); }
+    if (modoTeste) {
+      log("Redirecionaria para: " + urlWhatsApp.slice(0, 80) + "…");
+      const a = document.createElement("a"); a.href = urlWhatsApp; a.textContent = "Continuar para o WhatsApp"; a.className = "link-accent";
+      form.appendChild(a); enviando = false; btn.disabled = false; label.textContent = "Quero receber meu orçamento";
+      return;
+    }
+    if (!site.whatsappNumero) {
+      let copiou = false;
+      try { await navigator.clipboard.writeText(linhas); copiou = true; } catch (e) {}
+      if (copiou) { label.textContent = "Mensagem copiada! É só colar no WhatsApp"; await espera(1500); }
+    }
+    window.location.href = urlWhatsApp;
+    setTimeout(() => { enviando = false; btn.disabled = false; label.textContent = "Quero receber meu orçamento"; }, 3000);
+  });
+})();
+
+$("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
