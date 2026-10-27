@@ -304,6 +304,23 @@ footer { border-top: 1px solid var(--border); }
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="assets/banner-2.webp">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1188560543498617');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1188560543498617&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -752,6 +769,8 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
     };
     const urlWhatsApp = site.whatsappNumero ? `https://wa.me/${site.whatsappNumero}?text=${encodeURIComponent(linhas)}` : site.whatsappLink;
     enviando = true; btn.disabled = true; label.textContent = "Enviando…";
+    /* Meta Pixel: conta cada orçamento enviado como Lead (para medir anúncios) */
+    try { if (window.fbq) fbq("track", "Lead", { content_name: "Formulário de orçamento", content_category: v("estilo") }); } catch (e) {}
     log("Formulário válido. Dados: " + JSON.stringify(dados));
     try { await enviarWebhook(dados); } catch (e) { log("ERRO no envio: " + (e && e.message)); }
     if (modoTeste) {
